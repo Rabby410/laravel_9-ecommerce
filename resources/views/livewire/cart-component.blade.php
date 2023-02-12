@@ -33,7 +33,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     @foreach (Cart::instance('cart')->content() as $item )
                                     <tr>
                                         <td class="image product-thumbnail"><img src="{{ asset('assets/imgs/shop/product-')}}{{ $item->model->id }}-1.jpg" alt="#"></td>
