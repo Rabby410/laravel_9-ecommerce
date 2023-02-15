@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="/" rel="nofollow">Home</a>
-                    <span></span> Add New Product
+                    <span></span> Edit Product
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
-                                    <div class="col-md-6">Add New Product</div>
+                                    <div class="col-md-6">Edit Product</div>
                                     <div class="col-md-6"><a href="{{ route('admin.products') }}" class="btn btn-success float-end">All Products</a></div>
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                                 @if (Session::has('message'))
                                 <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
                                 @endif
-                                <form wire:submit.prevent="addProduct">
+                                <form wire:submit.prevent="updateProduct">
                                 <div class="mb-3 mt-3">
                                     <label for="name" class="form-label">Name</label>
                                     <input type="text" name="name" class="form-control"placeholder="Enter Product Name" wire:model="name" wire:keyup="generateSlug" />
@@ -118,12 +118,13 @@
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="image" class="form-label">Image</label>
-                                    <input type="file" class="form-control" name="image" wire:model="image" />
-                                    @if ($image)
-                                    <img src="{{ $image->temporaryUrl() }}" width="120" />
-
+                                    <input type="file" class="form-control" name="image" wire:model="newimage" />
+                                    @if ($newimage)
+                                    <img src="{{ $newimage->temporaryUrl() }}" width="120" />
+                                    @else
+                                    <img src="{{ asset('assets/imgs/products') }}/{{ $image }}" width="120" />
                                     @endif
-                                    @error('image')
+                                    @error('newimage')
                                     <p class="text-denger">{{ $message }}</p>
                                     @enderror
                                 </div>
@@ -142,7 +143,7 @@
                                 </div>
 
 
-                                <button type="submit" class="btn btn-primary float-end">Submit</button>
+                                <button type="submit" class="btn btn-primary float-end">Update</button>
                                 </form>
                             </div>
                         </div>

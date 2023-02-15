@@ -62,8 +62,8 @@
                                             <td><img src="{{ asset('assets/imgs/products')}}/{{ $product->image }}" alt="{{ $product->name }}" width="60" /></td>
                                             <td>{{ $product->created_at }}</td>
                                             <td>
-                                                {{-- <a href="{{ route('admin.product.edit',['product_id'=>$product->id]) }}" class="text-info">Edit</a>
-                                                <a href="#" class="text-denger" style="margin-left: 20px" onclick="deleteConfirmation({{ $category->id }})">Delete</a> --}}
+                                                <a href="{{ route('admin.products.edit',['product_id'=>$product->id]) }}" class="text-info">Edit</a>
+                                                {{-- <a href="#" class="text-denger" style="margin-left: 20px" onclick="deleteConfirmation({{ $category->id }})">Delete</a> --}}
                                             </td>
                                         </tr>
 
